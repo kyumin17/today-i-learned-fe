@@ -1,0 +1,19 @@
+.list-item {
+  border-bottom: 0.5px solid #c9c9c9;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.list-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.list-more-info {
+  position: absolute;
+  right: 0.9rem;
+  top: 0.3rem;
+  font-size: 0.9rem;
+}

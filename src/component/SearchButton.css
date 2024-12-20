@@ -1,0 +1,8 @@
+.search-btn {
+  display: flex;
+  align-content: center;
+}
+
+.search-icon {
+  height: 1.2rem;
+}

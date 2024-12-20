@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  position: relative;
+  height: 2.8rem;
+  align-items: center;
+  border-bottom: 0.5px solid #B1B1B1;
+}
+
+.header-left {
+  position: absolute;
+  left: 1rem;
+}
+
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.header-right {
+  position: absolute;
+  right: 1rem;
+}
