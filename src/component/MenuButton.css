@@ -6,3 +6,53 @@
 .menu-icon {
   height: 1.2rem;
 }
+
+.menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.menu-bar {
+  background-color: white;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.menu-background {
+  opacity: 0.1;
+  background-color: #28292f;
+}
+
+.menu-bar-title {
+  font-weight: 600;
+  color: #707070;
+  margin-bottom: 0.7rem;
+}
+
+.menu-bar-tag {
+  margin-bottom: 0.7rem;
+  position: relative;
+}
+
+.menu-bar-tag-icon {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #c4c4c4;
+  margin-right: 0.3rem;
+}
+
+.menu-bar-tag-icon-select {
+  color: #00AAFF;
+}
+
+.menu-bar-more {
+  position: absolute;
+  right: 0.2rem;
+  bottom: 0.2rem;
+}

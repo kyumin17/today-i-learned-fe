@@ -1,0 +1,14 @@
+.write-btn {
+  height: 2.7rem;
+  width: 2.7rem;
+  border-radius: 2rem;
+  background-color: #393939;
+  font-size: 2.2rem;
+  line-height: 2.4rem;
+  text-align: center;
+  font-weight: 200;
+  color: white;
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+}

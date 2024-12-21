@@ -4,19 +4,82 @@ import Header from '../component/Header.tsx';
 import MenuButton from '../component/MenuButton.tsx';
 import SearchButton from '../component/SearchButton.tsx';
 import UserButton from '../component/UserButton.tsx';
+import WriteButton from '../component/WriteButton.tsx';
+import { useState, useEffect } from 'react';
+import http from '../api/http.js';
+import { useParams, Link } from 'react-router-dom';
+
+interface Content {
+  id: string,
+  user_id: string,
+  tag_id: string,
+  tag_name: string,
+  title: string,
+  content: string,
+  create_year: number,
+  create_month: number,
+  create_date: number
+};
 
 export default function ListPage() {
-  const contentList = [
-    {id: 1, title: 'hello', tag_id: '1', tag_name: 'tag'},
-    {id: 1, title: 'hello', tag_id: '1', tag_name: 'tag'}
-  ];
+  const [contents, setContents] = useState([]);
+  const [tags, setTags] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTags = async () => {
+      try {
+        const res = await http.get('/tags', {});
+        setTags(res.data);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+  
+    fetchTags();
+  }, []);
+
+  let tagId = useParams().tag_id;
+
+  // 하위 태그 게시글들 필터에 추가
+  let filter = "?";
+  function getChildTag(id: string) {
+    filter += `tag_id=${id}&`
+
+    for (let i of tags[id].child) {
+      getChildTag(i);
+    }
+  }
+
+  if (tags && tagId) {
+    getChildTag(tagId);
+  }
+
+  // 게시글 불러옴
+  useEffect(() => {
+    const fetchContents = async () => {
+      try {
+        const res = await http.get(`/contents?tag_id=${tagId}`, {});
+        setContents(res.data);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+  
+    fetchContents();
+  }, [tagId]);
 
   return (
     <div>
+      {/* 헤더 */}
       <Header
         left={
           <MenuButton />
-        } 
+        }
         center={
           <div className="logo">
             Today I Learned
@@ -29,21 +92,58 @@ export default function ListPage() {
           </div>
         }
       />
-      <SubBar tag={"tag"} />
-      {contentList.map((content) => {
-        return (<ListItem contentId={content.id} title={content.title} tagId={content.tag_id} tagName={content.tag_name} />);
+
+      {/* tag 필터 있을 시 sub bar 띄움 */}
+      {tagId && <SubBar tags={tags} tagId={tagId} />}
+
+      {/* 글 리스트 */}
+      {contents.map((content: Content) => {
+        return (
+          <ListItem key={content.id} contentId={content.id} title={content.title} tagId={content.tag_id} tagName={content.tag_name} />
+        );
       })}
+
+      {/* 글 작성 버튼 */}
+      <WriteButton />
     </div>
   );
 }
 
-function SubBar({ tag }) {
+function SubBar({ tags, tagId }) {
+  // tag 관계 리스트로 저장
+  let next: string = tagId;
+  let tagList: string[] = [];
+
+  if (tags) {
+    while (next != "0") {
+      tagList.push(next);
+      next = tags[next].parent;
+    }
+    tagList.reverse();
+  }
+
   return (
     <div className="sub-bar">
-      <div className="breadcrumb">{tag}</div>
+      {/* tag 경로 */}
+      <div className="breadcrumb">
+        {tagList.map((id: string, idx: number) => {
+          return (
+            <div className="breadcrumb-tag" key={id}>
+              <Link to={`/${id}`} className="link">
+                {tags[id].name}
+              </Link>
+              {idx !== tagList.length - 1 && <span className="breadcrumb-icon">&gt;</span>}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 디스플레이 설정 버튼 */}
       <div className="right-menu">
         <img src="../../image/list-icon.png" alt="list" className="list-icon" />
-        <img src="../../image/group-icon.png" alt="group" className="group-icon" />
+        <Link to="/activity" className="link group-link">
+          <img src="../../image/group-icon.png" alt="group" className="group-icon" />
+        </Link>
       </div>
     </div>
   );

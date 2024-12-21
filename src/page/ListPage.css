@@ -17,7 +17,18 @@
 }
 
 .breadcrumb {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  display: flex;
+  font-weight: 500;
+}
+
+.breadcrumb-tag {
+  margin-right: 0.6rem;
+}
+
+.breadcrumb-icon {
+  margin-left: 0.6rem;
+  font-size: 0.6rem;
 }
 
 .right-menu {
@@ -35,4 +46,9 @@
 
 .group-icon {
   height: 0.9rem;
+}
+
+.group-link {
+  display: flex;
+  align-content: center;
 }

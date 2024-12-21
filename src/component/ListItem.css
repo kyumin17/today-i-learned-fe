@@ -1,8 +1,6 @@
 .list-item {
   border-bottom: 0.5px solid #c9c9c9;
   padding: 1rem 1rem;
-  display: flex;
-  flex-direction: column;
   position: relative;
 }
 
