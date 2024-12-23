@@ -1,0 +1,84 @@
+.activity-graph {
+  padding: 2rem 2rem 2.5rem;
+  border-bottom: 5px solid #ebebeb;
+}
+
+.activity-graph-header {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.activity-graph-header > div {
+  text-align: center;
+}
+
+.activity-graph-calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+  font-size: 0.7rem;
+  margin-bottom: 0.3rem;
+  color: #4E4E4E;
+}
+
+.activity-graph-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.activity-cell {
+  background-color: #F3F3F3;
+  border-radius: 0.1rem;
+  aspect-ratio: 1 / 1;
+  text-align: center;
+  align-content: center;
+  color: #555555;
+}
+
+.activity-detail {
+  padding: 1.7rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.activity-detail-date {
+  margin-bottom: 1rem;
+}
+
+.activity-detail-content {
+  display: flex;
+  margin-bottom: 0.4rem;
+}
+
+.activity-detail-tag {
+  align-content: center;
+}
+
+.activity-detail-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+.activity-cell-selected {
+  border: 1px solid black;
+}
+
+.activity-cell-1 {
+  background-color: #92DBFF;
+  color: white;
+}
+
+.activity-cell-2 {
+  background-color: #51C5FF;
+  color: white;
+}
+
+.activity-cell-3 {
+  background-color: #00AAFF;
+  color: white;
+}

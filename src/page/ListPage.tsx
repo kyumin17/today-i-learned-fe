@@ -5,6 +5,7 @@ import MenuButton from '../component/MenuButton.tsx';
 import SearchButton from '../component/SearchButton.tsx';
 import UserButton from '../component/UserButton.tsx';
 import WriteButton from '../component/WriteButton.tsx';
+import SubBar from '../component/SubBar.tsx';
 import { useState, useEffect } from 'react';
 import http from '../api/http.js';
 import { useParams, Link } from 'react-router-dom';
@@ -44,13 +45,14 @@ export default function ListPage() {
   let tagId = useParams().tag_id;
 
   // 하위 태그 게시글들 필터에 추가
-  let filter = "?";
+  let filter = ''
   function getChildTag(id: string) {
-    filter += `tag_id=${id}&`
-
-    for (let i of tags[id].child) {
-      getChildTag(i);
-    }
+    filter += `?tag_id=${id}&`
+    
+    // 백에서 구현 필요
+    // for (let i of tags[id].child) {
+    //   getChildTag(i);
+    // }
   }
 
   if (tags && tagId) {
@@ -61,7 +63,7 @@ export default function ListPage() {
   useEffect(() => {
     const fetchContents = async () => {
       try {
-        const res = await http.get(`/contents?tag_id=${tagId}`, {});
+        const res = await http.get(`/contents${filter}`, {});
         setContents(res.data);
       } catch (err) {
         console.log(err);
@@ -71,7 +73,7 @@ export default function ListPage() {
     }
   
     fetchContents();
-  }, [tagId]);
+  }, [filter]);
 
   return (
     <div>
@@ -94,7 +96,7 @@ export default function ListPage() {
       />
 
       {/* tag 필터 있을 시 sub bar 띄움 */}
-      {tagId && <SubBar tags={tags} tagId={tagId} />}
+      <SubBar leftDOM={tagId ? <Breadcrumb tags={tags} tagId={tagId} /> : <></>} />
 
       {/* 글 리스트 */}
       {contents.map((content: Content) => {
@@ -109,7 +111,7 @@ export default function ListPage() {
   );
 }
 
-function SubBar({ tags, tagId }) {
+function Breadcrumb({ tags, tagId }) {
   // tag 관계 리스트로 저장
   let next: string = tagId;
   let tagList: string[] = [];
@@ -123,28 +125,17 @@ function SubBar({ tags, tagId }) {
   }
 
   return (
-    <div className="sub-bar">
-      {/* tag 경로 */}
-      <div className="breadcrumb">
-        {tagList.map((id: string, idx: number) => {
-          return (
-            <div className="breadcrumb-tag" key={id}>
-              <Link to={`/${id}`} className="link">
-                {tags[id].name}
-              </Link>
-              {idx !== tagList.length - 1 && <span className="breadcrumb-icon">&gt;</span>}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* 디스플레이 설정 버튼 */}
-      <div className="right-menu">
-        <img src="../../image/list-icon.png" alt="list" className="list-icon" />
-        <Link to="/activity" className="link group-link">
-          <img src="../../image/group-icon.png" alt="group" className="group-icon" />
-        </Link>
-      </div>
+    <div className="breadcrumb">
+      {tagList.map((id: string, idx: number) => {
+        return (
+          <div className="breadcrumb-tag" key={id}>
+            <Link to={`/${id}`} className="link">
+              {tags[id].name}
+            </Link>
+            {idx !== tagList.length - 1 && <span className="breadcrumb-icon">&gt;</span>}
+          </div>
+        );
+      })}
     </div>
   );
 }

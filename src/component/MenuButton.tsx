@@ -45,7 +45,7 @@ function Menu({ isVisible, setIsVisible }) {
   function dfs(id: string, depth: number) {
     if (id !== "0") {
       tagDomList.push(
-        <div className="menu-bar-tag" style={{marginLeft: `${depth - 1}rem`}} onClick={() => {setIsVisible(false)}}>
+        <div className="menu-bar-tag" style={{marginLeft: `${(depth - 1) * 0.6}rem`}} onClick={() => {setIsVisible(false)}}>
           <Link to={`/${id}`} className="link">
             <span 
               className={`menu-bar-tag-icon ${id === tagId ? "menu-bar-tag-icon-select" : ""}`}>
