@@ -1,0 +1,38 @@
+.tool-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 2rem;
+  padding: 0 1rem;
+  box-shadow: 0 1.5px 1.5px 0 #dfdfdf;
+  overflow-x: scroll;
+}
+
+.tool-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.tool {
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.tool:not(:last-child) {
+  margin-right: 0.8rem;
+}
+
+.code-icon {
+  height: 1.1rem;
+  margin-top: 0.2rem;
+}
+
+.image-icon {
+  height: 1.1rem;
+  margin-top: 0.3rem;
+}
+
+.link-icon {
+  height: 1rem;
+  margin-top: 0.3rem;
+}

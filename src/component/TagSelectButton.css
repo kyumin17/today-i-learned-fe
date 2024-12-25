@@ -1,0 +1,32 @@
+.tag-select-btn {
+  background-color: #F3F3F3;
+  color: #A9A9A9;
+  display: inline;
+  font-size: 0.85rem;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.1rem;
+  border: none;
+  width: 4rem;
+}
+
+.tag-select-btn-activate {
+  background-color: #E2F5FF;
+  color: #00AAFF;
+}
+
+.tag-select-menu {
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  position: absolute;
+  font-size: 0.85rem;
+  background-color: white;
+  z-index: 2;
+  border: 0.5px solid #000000;
+  border-radius: 0.2rem;
+  width: 10rem;
+  min-height: 5rem;
+}
+
+.tag-select-menu-tag:not(:last-child) {
+  margin-bottom: 0.4rem;
+}

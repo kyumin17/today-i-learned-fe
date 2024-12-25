@@ -1,0 +1,47 @@
+.cancel-btn, .save-btn {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.cancel-btn {
+  color: #ACACAC;
+}
+
+.save-btn {
+  color: #009dff;
+}
+
+.writing-date {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.text-area {
+  padding: 1.8rem 1.5rem;
+}
+
+.text-area-title {
+  border: none;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+  padding: 0;
+  font-weight: 600;
+}
+
+.text-area-title:focus {
+  outline: none;
+}
+
+.text-area-title::placeholder {
+  color: #B4B4B4;
+  font-weight: 400;
+}
+
+.text-area-body {
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.public-DraftEditorPlaceholder-inner {
+  color: #B4B4B4
+}
