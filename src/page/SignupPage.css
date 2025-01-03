@@ -1,13 +1,13 @@
-.login-page {
-  margin: 20vh 3.5rem 0;
+.signup-page {
+  margin: 15vh 3.5rem 0;
 }
 
-.login-title {
+.signup-title {
   font-size: 1.3rem;
   font-weight: 500;
   margin-bottom: 2rem;
 }
 
-.login-input {
+.signup-input {
   margin-bottom: 3rem;
 }

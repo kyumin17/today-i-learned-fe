@@ -1,0 +1,22 @@
+.input-box {
+  margin-bottom: 2rem;
+}
+
+.input-label {
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+}
+
+.input-area {
+  border: none;
+  background-color: #F3F3F3;
+  border-radius: 0.3rem;
+  padding: 0.5rem 0.7rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.input-area:focus {
+  outline: 1px solid #d0d0d0;
+}

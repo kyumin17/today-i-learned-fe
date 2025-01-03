@@ -1,7 +1,7 @@
 import './WritePage.css';
 import Header from '../component/Header';
-import WritingToolBar from '../component/WritingToolBar.tsx';
-import TagSelectButton from '../component/TagSelectButton.tsx';
+import WritingToolBar from '../component/sub-bar/WritingToolBar.tsx';
+import TagSelectButton from '../component/button/TagSelectButton.tsx';
 import { Editor, EditorState } from 'draft-js';
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';

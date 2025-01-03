@@ -4,7 +4,7 @@ import ContentPage from './page/ContentPage.tsx';
 import WritePage from './page/WritePage.tsx';
 import SettingPage from './page/SettingPage.tsx';
 import LoginPage from './page/LoginPage.tsx';
-import SignInPage from './page/SignInPage.tsx';
+import SignupPage from './page/SignupPage.tsx';
 import ActivityGraphPage from './page/ActivityGraphPage.tsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -28,7 +28,7 @@ function App() {
           {/* 로그인 */}
           <Route path='/login' element={<LoginPage />} />
           {/* 가입 */}
-          <Route path='/signin' element={<SignInPage />} />
+          <Route path='/signup' element={<SignupPage />} />
           {/* 잔디 */}
           <Route path='/activity' element={<ActivityGraphPage />} />
         </Routes>

@@ -1,11 +1,11 @@
 import './ListPage.css';
 import ListItem from '../component/ListItem.tsx';
 import Header from '../component/Header.tsx';
-import MenuButton from '../component/MenuButton.tsx';
-import SearchButton from '../component/SearchButton.tsx';
-import UserButton from '../component/UserButton.tsx';
-import WriteButton from '../component/WriteButton.tsx';
-import SubBar from '../component/SubBar.tsx';
+import MenuButton from '../component/button/MenuButton.tsx';
+import SearchButton from '../component/button/SearchButton.tsx';
+import UserButton from '../component/button/UserButton.tsx';
+import WriteButton from '../component/button/WriteButton.tsx';
+import SubBar from '../component/sub-bar/SubBar.tsx';
 import { useState, useEffect } from 'react';
 import http from '../api/http.js';
 import { useParams, Link } from 'react-router-dom';

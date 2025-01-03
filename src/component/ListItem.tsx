@@ -1,5 +1,5 @@
 import './ListItem.css';
-import TagButton from './TagButton.tsx';
+import TagButton from './button/TagButton.tsx';
 import { Link } from 'react-router-dom';
 
 export default function ListItem({ contentId, title, tagId, tagName }) {
